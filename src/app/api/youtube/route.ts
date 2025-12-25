@@ -1,17 +1,17 @@
-﻿import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const query = searchParams.get('q')
 
   if (!query) {
-    return NextResponse.json({ error: '寃?됱뼱瑜??낅젰?댁＜?몄슂.' }, { status: 400 })
+    return NextResponse.json({ error: '검색어를 입력해주세요.' }, { status: 400 })
   }
 
   const apiKey = process.env.YOUTUBE_API_KEY
 
   if (!apiKey || apiKey === 'placeholder') {
-    return NextResponse.json({ error: 'YouTube API ?ㅺ? ?ㅼ젙?섏? ?딆븯?듬땲??' }, { status: 500 })
+    return NextResponse.json({ error: 'YouTube API 키가 설정되지 않았습니다.' }, { status: 500 })
   }
 
   try {
@@ -43,6 +43,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ items })
   } catch (error) {
-    return NextResponse.json({ error: 'API ?붿껌 以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.' }, { status: 500 })
+    return NextResponse.json({ error: 'API 요청 중 오류가 발생했습니다.' }, { status: 500 })
   }
 }

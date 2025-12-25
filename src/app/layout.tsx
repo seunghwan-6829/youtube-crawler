@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: '由щ????щ·??| YouTube Data Crawler',
-  description: '?좏뒠釉??곗씠?곕? ?쎄쾶 ?섏쭛?섍퀬 遺꾩꽍?섏꽭??,
+  title: '리부트 크롤러 | YouTube Data Crawler',
+  description: '유튜브 데이터를 쉽게 수집하고 분석하세요',
 }
 
 export default function RootLayout({
