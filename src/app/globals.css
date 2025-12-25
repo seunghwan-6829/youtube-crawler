@@ -4,52 +4,121 @@
   --color-primary: #f97316;
   --color-primary-dark: #ea580c;
   --color-primary-light: #fb923c;
-  --color-background: #fffbf7;
+  --color-background: #fafafa;
   --color-surface: #ffffff;
   --color-text: #1f2937;
   --color-text-muted: #6b7280;
 }
 
+.dark {
+  --color-background: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-text: #f5f5f5;
+  --color-text-muted: #a3a3a3;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-weight: 600;
   transition: all 0.2s;
+  box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(249, 115, 22, 0.4);
 }
 
 .btn-primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  border: 2px solid var(--color-primary);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: white;
 }
 
 .input-field {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1rem;
   border: 2px solid #e5e7eb;
-  border-radius: 0.5rem;
-  transition: border-color 0.2s;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
 .input-field:focus {
   outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+.dark .input-field {
+  border-color: #333;
+  background: #1a1a1a;
+}
+
+.dark .input-field:focus {
   border-color: var(--color-primary);
 }
 
 .card {
   background-color: var(--color-surface);
   border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.dark .card {
+  border-color: #333;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dark .navbar {
+  background: rgba(15, 15, 15, 0.9);
+  border-bottom-color: #333;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #fff7ed 0%, #fafafa 50%, #f0fdf4 100%);
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
 }

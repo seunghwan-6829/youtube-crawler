@@ -5,13 +5,13 @@ export async function GET(request: NextRequest) {
   const query = searchParams.get('q')
 
   if (!query) {
-    return NextResponse.json({ error: 'Please enter a search query.' }, { status: 400 })
+    return NextResponse.json({ error: '寃?됱뼱瑜??낅젰?댁＜?몄슂.' }, { status: 400 })
   }
 
   const apiKey = process.env.YOUTUBE_API_KEY
 
-  if (!apiKey) {
-    return NextResponse.json({ error: 'YouTube API key is not configured.' }, { status: 500 })
+  if (!apiKey || apiKey === 'placeholder') {
+    return NextResponse.json({ error: 'YouTube API ?ㅺ? ?ㅼ젙?섏? ?딆븯?듬땲??' }, { status: 500 })
   }
 
   try {
@@ -43,6 +43,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ items })
   } catch (error) {
-    return NextResponse.json({ error: 'An error occurred while fetching data.' }, { status: 500 })
+    return NextResponse.json({ error: 'API ?붿껌 以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.' }, { status: 500 })
   }
 }
