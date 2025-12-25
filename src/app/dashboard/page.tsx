@@ -52,7 +52,7 @@ export default function DashboardPage() {
         setVideos(data.items || [])
       }
     } catch (err) {
-      setError('寃??以??ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.')
+      setError('An error occurred while searching.')
     } finally {
       setLoading(false)
     }
@@ -66,7 +66,7 @@ export default function DashboardPage() {
   if (!user) {
     return (
       <main className='min-h-screen flex items-center justify-center'>
-        <div className='text-orange-500'>濡쒕뵫 以?..</div>
+        <div className='text-orange-500'>Loading...</div>
       </main>
     )
   }
@@ -80,7 +80,7 @@ export default function DashboardPage() {
         <div className='flex items-center gap-4'>
           <span className='text-gray-600 text-sm'>{user.email}</span>
           <button onClick={handleLogout} className='text-gray-500 hover:text-gray-700'>
-            濡쒓렇?꾩썐
+            Logout
           </button>
         </div>
       </header>
@@ -92,10 +92,10 @@ export default function DashboardPage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className='input-field flex-1'
-            placeholder='?좏뒠釉??곸긽 寃?됱뼱瑜??낅젰?섏꽭??..'
+            placeholder='Enter YouTube search query...'
           />
           <button type='submit' className='btn-primary' disabled={loading}>
-            {loading ? '寃??以?..' : '寃??}
+            {loading ? 'Searching...' : 'Search'}
           </button>
         </form>
 
@@ -115,7 +115,7 @@ export default function DashboardPage() {
                 <h3 className='font-semibold mb-1 line-clamp-2'>{video.title}</h3>
                 <p className='text-sm text-gray-500 mb-2'>{video.channelTitle}</p>
                 <p className='text-xs text-gray-400'>
-                  {new Date(video.publishedAt).toLocaleDateString('ko-KR')}
+                  {new Date(video.publishedAt).toLocaleDateString('en-US')}
                 </p>
               </div>
               <a
@@ -124,7 +124,8 @@ export default function DashboardPage() {
                 rel='noopener noreferrer'
                 className='text-orange-500 hover:text-orange-600 text-sm font-medium self-center'
               >
-                蹂닿린 ??              </a>
+                Watch
+              </a>
             </div>
           ))}
         </div>
@@ -132,7 +133,7 @@ export default function DashboardPage() {
         {videos.length === 0 && !loading && !error && (
           <div className='text-center py-16 text-gray-400'>
             <div className='text-5xl mb-4'>?뵇</div>
-            <p>寃?됱뼱瑜??낅젰?섏뿬 ?좏뒠釉??곸긽??李얠븘蹂댁꽭??/p>
+            <p>Enter a search query to find YouTube videos</p>
           </div>
         )}
       </div>

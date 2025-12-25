@@ -21,7 +21,7 @@ export default function SignupPage() {
     setError('')
 
     if (password !== confirmPassword) {
-      setError('鍮꾨?踰덊샇媛 ?쇱튂?섏? ?딆뒿?덈떎.')
+      setError('Passwords do not match')
       setLoading(false)
       return
     }
@@ -44,13 +44,14 @@ export default function SignupPage() {
       <main className='min-h-screen flex items-center justify-center p-4'>
         <div className='card w-full max-w-md text-center'>
           <div className='text-5xl mb-4'>?됵툘</div>
-          <h1 className='text-2xl font-bold mb-4'>?대찓?쇱쓣 ?뺤씤?댁＜?몄슂!</h1>
+          <h1 className='text-2xl font-bold mb-4'>Check your email!</h1>
           <p className='text-gray-600 mb-6'>
-            {email}?쇰줈 ?뺤씤 硫붿씪??諛쒖넚?덉뒿?덈떎.<br/>
-            硫붿씪??留곹겕瑜??대┃?섏뿬 媛?낆쓣 ?꾨즺?댁＜?몄슂.
+            We sent a confirmation email to {email}.<br/>
+            Click the link in the email to complete signup.
           </p>
           <Link href='/auth/login' className='text-orange-500 font-semibold hover:underline'>
-            濡쒓렇???섏씠吏濡??뚯븘媛湲?          </Link>
+            Back to Login
+          </Link>
         </div>
       </main>
     )
@@ -60,12 +61,12 @@ export default function SignupPage() {
     <main className='min-h-screen flex items-center justify-center p-4'>
       <div className='card w-full max-w-md'>
         <h1 className='text-2xl font-bold text-center mb-6'>
-          <span className='text-orange-500'>?뚯썝媛??/span>
+          <span className='text-orange-500'>Sign Up</span>
         </h1>
         
         <form onSubmit={handleSignup} className='space-y-4'>
           <div>
-            <label className='block text-sm font-medium mb-2'>?대찓??/label>
+            <label className='block text-sm font-medium mb-2'>Email</label>
             <input
               type='email'
               value={email}
@@ -77,26 +78,26 @@ export default function SignupPage() {
           </div>
           
           <div>
-            <label className='block text-sm font-medium mb-2'>鍮꾨?踰덊샇</label>
+            <label className='block text-sm font-medium mb-2'>Password</label>
             <input
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className='input-field'
-              placeholder='理쒖냼 6???댁긽'
+              placeholder='At least 6 characters'
               minLength={6}
               required
             />
           </div>
 
           <div>
-            <label className='block text-sm font-medium mb-2'>鍮꾨?踰덊샇 ?뺤씤</label>
+            <label className='block text-sm font-medium mb-2'>Confirm Password</label>
             <input
               type='password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className='input-field'
-              placeholder='鍮꾨?踰덊샇瑜??ㅼ떆 ?낅젰?댁＜?몄슂'
+              placeholder='Re-enter password'
               required
             />
           </div>
@@ -110,14 +111,15 @@ export default function SignupPage() {
             className='btn-primary w-full'
             disabled={loading}
           >
-            {loading ? '媛??以?..' : '?뚯썝媛??}
+            {loading ? 'Signing up...' : 'Sign Up'}
           </button>
         </form>
 
         <p className='text-center mt-6 text-gray-600'>
-          ?대? 怨꾩젙???덉쑝?좉???{' '}
+          Already have an account?{' '}
           <Link href='/auth/login' className='text-orange-500 font-semibold hover:underline'>
-            濡쒓렇??          </Link>
+            Login
+          </Link>
         </p>
       </div>
     </main>

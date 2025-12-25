@@ -13,7 +13,6 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .btn-primary {
@@ -28,6 +27,11 @@ body {
 .btn-primary:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .input-field {

@@ -40,7 +40,7 @@ export default function LoginPage() {
         
         <form onSubmit={handleLogin} className='space-y-4'>
           <div>
-            <label className='block text-sm font-medium mb-2'>?대찓??/label>
+            <label className='block text-sm font-medium mb-2'>Email</label>
             <input
               type='email'
               value={email}
@@ -52,7 +52,7 @@ export default function LoginPage() {
           </div>
           
           <div>
-            <label className='block text-sm font-medium mb-2'>鍮꾨?踰덊샇</label>
+            <label className='block text-sm font-medium mb-2'>Password</label>
             <input
               type='password'
               value={password}
@@ -72,14 +72,15 @@ export default function LoginPage() {
             className='btn-primary w-full'
             disabled={loading}
           >
-            {loading ? '濡쒓렇??以?..' : '濡쒓렇??}
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
         <p className='text-center mt-6 text-gray-600'>
-          怨꾩젙???놁쑝?좉???{' '}
+          No account?{' '}
           <Link href='/auth/signup' className='text-orange-500 font-semibold hover:underline'>
-            ?뚯썝媛??          </Link>
+            Sign Up
+          </Link>
         </p>
       </div>
     </main>
