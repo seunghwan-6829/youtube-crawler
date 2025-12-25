@@ -40,6 +40,7 @@ export default function AdminPage() {
   const [crawledData, setCrawledData] = useState<{channel: ChannelInfo, videos: VideoInfo[]}[]>([])
   const [crawling, setCrawling] = useState(false)
   const [selectedVideos, setSelectedVideos] = useState<Set<string>>(new Set())
+  const [maxResults, setMaxResults] = useState('50')
   const router = useRouter()
   const supabase = createClient()
 
@@ -85,7 +86,7 @@ export default function AdminPage() {
         try {
           const isChannelId = channel.startsWith('UC')
           const param = isChannelId ? `channelId=${channel}` : `handle=${encodeURIComponent(channel)}`
-          const res = await fetch(`/api/youtube/channel?${param}&maxResults=10`)
+          const res = await fetch(`/api/youtube/channel?${param}&maxResults=${maxResults}`)
           const data = await res.json()
           if (!data.error) {
             results.push(data)
@@ -221,6 +222,17 @@ export default function AdminPage() {
                 <div className='p-6 rounded-2xl mb-6' style={{background: '#1a1a1a', border: '1px solid #333'}}>
                   <div className='flex justify-between items-center mb-4'>
                     <h2 className='text-xl font-bold text-white'>등록된 채널 ({channels.length}개)</h2>
+                    <div className='flex items-center gap-4'>
+                      <select 
+                        value={maxResults} 
+                        onChange={(e) => setMaxResults(e.target.value)}
+                        className='px-4 py-2 rounded-xl bg-gray-900 border border-gray-700 text-white'
+                      >
+                        <option value='10'>10개</option>
+                        <option value='20'>20개</option>
+                        <option value='30'>30개</option>
+                        <option value='50'>50개</option>
+                      </select>
                     <button 
                       onClick={handleCrawlChannels} 
                       disabled={crawling}
@@ -238,6 +250,7 @@ export default function AdminPage() {
                         </>
                       )}
                     </button>
+                    </div>
                   </div>
                   <div className='flex flex-wrap gap-2'>
                     {channels.map((channel, idx) => (

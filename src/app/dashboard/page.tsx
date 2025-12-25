@@ -49,6 +49,7 @@ export default function DashboardPage() {
   const [channelData, setChannelData] = useState<{channel: ChannelInfo, videos: ChannelVideo[]} | null>(null)
   const [channelLoading, setChannelLoading] = useState(false)
   const [selectedVideos, setSelectedVideos] = useState<Set<string>>(new Set())
+  const [maxResults, setMaxResults] = useState('50')
   const router = useRouter()
   const supabase = createClient()
 
@@ -93,7 +94,7 @@ export default function DashboardPage() {
     try {
       const isChannelId = channelQuery.trim().startsWith('UC')
       const param = isChannelId ? `channelId=${channelQuery.trim()}` : `handle=${encodeURIComponent(channelQuery.trim())}`
-      const res = await fetch(`/api/youtube/channel?${param}&maxResults=12`)
+      const res = await fetch(`/api/youtube/channel?${param}&maxResults=${maxResults}`)
       const data = await res.json()
       if (data.error) setError(data.error)
       else setChannelData(data)
@@ -244,6 +245,16 @@ export default function DashboardPage() {
               <form onSubmit={handleChannelSearch} className='flex gap-4 mb-8'>
                 <input type='text' value={channelQuery} onChange={(e) => setChannelQuery(e.target.value)}
                   className='input-field flex-1' placeholder='채널 ID(UC...) 또는 채널명(@핸들)을 입력하세요...' />
+                <select 
+                  value={maxResults} 
+                  onChange={(e) => setMaxResults(e.target.value)}
+                  className='input-field w-32'
+                >
+                  <option value='10'>10개</option>
+                  <option value='20'>20개</option>
+                  <option value='30'>30개</option>
+                  <option value='50'>50개</option>
+                </select>
                 <button type='submit' className='btn-primary' disabled={channelLoading}>
                   {channelLoading ? '크롤링 중...' : '크롤링'}
                 </button>
