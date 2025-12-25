@@ -50,9 +50,9 @@ export default function SignupPage() {
           <h1 className='text-4xl font-bold text-white mb-4 leading-tight'>Start Free<br/>Right Now</h1>
           <p className='text-gray-400 text-lg'>Sign up and experience the new world of YouTube data collection.</p>
           <div className='mt-8 space-y-4'>
-            <div className='flex items-center gap-3 text-gray-300'><span className='text-green-400'>??/span><span>Free to start</span></div>
-            <div className='flex items-center gap-3 text-gray-300'><span className='text-green-400'>??/span><span>Real-time YouTube search</span></div>
-            <div className='flex items-center gap-3 text-gray-300'><span className='text-green-400'>??/span><span>Easy data collection</span></div>
+            <div className='flex items-center gap-3 text-gray-300'><span className='text-green-400 font-bold'>+</span><span>Free to start</span></div>
+            <div className='flex items-center gap-3 text-gray-300'><span className='text-green-400 font-bold'>+</span><span>Real-time YouTube search</span></div>
+            <div className='flex items-center gap-3 text-gray-300'><span className='text-green-400 font-bold'>+</span><span>Easy data collection</span></div>
           </div>
         </div>
       </div>
