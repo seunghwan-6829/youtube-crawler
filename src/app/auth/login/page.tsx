@@ -21,7 +21,7 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
-      setError('Invalid email or password')
+      setError('?대찓???먮뒗 鍮꾨?踰덊샇媛 ?щ컮瑜댁? ?딆뒿?덈떎.')
       setLoading(false)
     } else {
       router.push('/dashboard')
@@ -37,13 +37,11 @@ export default function LoginPage() {
               <span className='text-white font-bold text-xl'>RC</span>
             </div>
             <span className='text-3xl font-bold text-white'>
-              <span className='gradient-text'>Reboot</span> Crawler
-            </span>
+              <span className='gradient-text'>由щ???/span> ?щ·??            </span>
           </Link>
           <h1 className='text-4xl font-bold text-white mb-4 leading-tight'>
-            All YouTube Data<br/>in One Place
-          </h1>
-          <p className='text-gray-400 text-lg'>Login to experience powerful YouTube data collection tools.</p>
+            ?좏뒠釉??곗씠?곗쓽<br/>紐⑤뱺 寃껋쓣 ??怨녹뿉??          </h1>
+          <p className='text-gray-400 text-lg'>濡쒓렇?명븯??媛뺣젰???곗씠???섏쭛 ?꾧뎄瑜?寃쏀뿕?섏꽭??</p>
         </div>
       </div>
 
@@ -55,25 +53,24 @@ export default function LoginPage() {
                 <span className='text-white font-bold'>RC</span>
               </div>
               <span className='text-2xl font-bold text-white'>
-                <span className='gradient-text'>Reboot</span> Crawler
-              </span>
+                <span className='gradient-text'>由щ???/span> ?щ·??              </span>
             </Link>
           </div>
 
           <div className='card' style={{background: '#1a1a1a', border: '1px solid #333'}}>
-            <h2 className='text-2xl font-bold text-white text-center mb-2'>Login</h2>
-            <p className='text-gray-400 text-center mb-8'>Sign in to your account</p>
+            <h2 className='text-2xl font-bold text-white text-center mb-2'>濡쒓렇??/h2>
+            <p className='text-gray-400 text-center mb-8'>怨꾩젙??濡쒓렇?명븯?몄슂</p>
             
             <form onSubmit={handleLogin} className='space-y-5'>
               <div>
-                <label className='block text-sm font-medium text-gray-300 mb-2'>Email</label>
+                <label className='block text-sm font-medium text-gray-300 mb-2'>?대찓??/label>
                 <input type='email' value={email} onChange={(e) => setEmail(e.target.value)}
                   className='input-field' style={{background: '#0f0f0f', borderColor: '#333', color: 'white'}}
                   placeholder='your@email.com' required />
               </div>
               
               <div>
-                <label className='block text-sm font-medium text-gray-300 mb-2'>Password</label>
+                <label className='block text-sm font-medium text-gray-300 mb-2'>鍮꾨?踰덊샇</label>
                 <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}
                   className='input-field' style={{background: '#0f0f0f', borderColor: '#333', color: 'white'}}
                   placeholder='********' required />
@@ -82,17 +79,17 @@ export default function LoginPage() {
               {error && <div className='p-3 bg-red-500/10 border border-red-500/20 rounded-lg'><p className='text-red-400 text-sm'>{error}</p></div>}
 
               <button type='submit' className='btn-primary w-full py-3' disabled={loading}>
-                {loading ? 'Logging in...' : 'Login'}
+                {loading ? '濡쒓렇??以?..' : '濡쒓렇??}
               </button>
             </form>
 
             <div className='mt-6 text-center'>
-              <p className='text-gray-400'>No account? <Link href='/auth/signup' className='text-orange-500 font-semibold hover:text-orange-400'>Sign Up</Link></p>
+              <p className='text-gray-400'>怨꾩젙???놁쑝?좉??? <Link href='/auth/signup' className='text-orange-500 font-semibold hover:text-orange-400'>?뚯썝媛??/Link></p>
             </div>
           </div>
 
           <p className='text-center mt-8 text-gray-500 text-sm'>
-            <Link href='/' className='hover:text-gray-400'>Back to Home</Link>
+            <Link href='/' className='hover:text-gray-400'>硫붿씤?쇰줈 ?뚯븘媛湲?/Link>
           </p>
         </div>
       </div>
