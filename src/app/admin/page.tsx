@@ -129,13 +129,16 @@ export default function AdminPage() {
               <h1 className='text-3xl font-bold text-white mb-8'>등급 관리</h1>
               <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
                 <div className='p-6 rounded-2xl text-center' style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                  <div className='text-4xl mb-4'>?쪏</div><h3 className='text-xl font-bold text-white mb-2'>브론즈</h3><p className='text-2xl font-bold text-orange-400'>0명</p>
+                  <div className='w-16 h-16 bg-amber-700/30 rounded-full flex items-center justify-center mx-auto mb-4'><span className='text-amber-600 text-2xl font-bold'>B</span></div>
+                  <h3 className='text-xl font-bold text-white mb-2'>브론즈</h3><p className='text-2xl font-bold text-orange-400'>0명</p>
                 </div>
                 <div className='p-6 rounded-2xl text-center' style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                  <div className='text-4xl mb-4'>?쪎</div><h3 className='text-xl font-bold text-white mb-2'>실버</h3><p className='text-2xl font-bold text-orange-400'>0명</p>
+                  <div className='w-16 h-16 bg-gray-400/30 rounded-full flex items-center justify-center mx-auto mb-4'><span className='text-gray-300 text-2xl font-bold'>S</span></div>
+                  <h3 className='text-xl font-bold text-white mb-2'>실버</h3><p className='text-2xl font-bold text-orange-400'>0명</p>
                 </div>
                 <div className='p-6 rounded-2xl text-center' style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                  <div className='text-4xl mb-4'>?쪍</div><h3 className='text-xl font-bold text-white mb-2'>골드</h3><p className='text-2xl font-bold text-orange-400'>0명</p>
+                  <div className='w-16 h-16 bg-yellow-500/30 rounded-full flex items-center justify-center mx-auto mb-4'><span className='text-yellow-400 text-2xl font-bold'>G</span></div>
+                  <h3 className='text-xl font-bold text-white mb-2'>골드</h3><p className='text-2xl font-bold text-orange-400'>0명</p>
                 </div>
               </div>
             </div>
