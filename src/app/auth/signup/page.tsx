@@ -11,7 +11,6 @@ export default function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
   const router = useRouter()
   const supabase = createClient()
 
@@ -35,26 +34,8 @@ export default function SignupPage() {
       setError(error.message)
       setLoading(false)
     } else {
-      setSuccess(true)
+      router.push('/dashboard')
     }
-  }
-
-  if (success) {
-    return (
-      <main className='min-h-screen flex items-center justify-center p-4'>
-        <div className='card w-full max-w-md text-center'>
-          <div className='text-5xl mb-4'>?됵툘</div>
-          <h1 className='text-2xl font-bold mb-4'>Check your email!</h1>
-          <p className='text-gray-600 mb-6'>
-            We sent a confirmation email to {email}.<br/>
-            Click the link in the email to complete signup.
-          </p>
-          <Link href='/auth/login' className='text-orange-500 font-semibold hover:underline'>
-            Back to Login
-          </Link>
-        </div>
-      </main>
-    )
   }
 
   return (
